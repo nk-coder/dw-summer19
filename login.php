@@ -1,13 +1,43 @@
 <?php 
-
+include_once("db_config/config.php"); 
 include_once('template/header.php'); 
 include_once('template/nav.php'); 
 
 ?>
+<?php
+   $err_collect = array();
+   if(isset($_POST["login-submit"])){
+      $username = mysqli_real_escape_string($con,$_POST["username"]);
+      $password = md5($_POST['password']);
+
+      if(empty($username) || empty($password)){
+         array_push($err_collect, "All Field must be filled out");
+      }
+      if (!empty($username) && !empty($password)) {
+         $check_user = mysqli_query($con, "SELECT * FROM users WHERE username='$username' AND password='$password'");
+         $user_query = mysqli_num_rows($check_user);
+
+         if ($user_query == 1) {
+            $row = mysqli_fetch_array($check_database_query);
+            $username = $row['username'];
+
+            $_SESSION['username'] = $username;
+            header("location: index.php");
+         }else{
+            echo "Email or password was incorrect";
+         }
+      }
+
+   }
+?>
+
 <!-- Start  login -->
           <div class="container login_form">
       <div class="row">
          <div class="col-md-6 col-md-offset-3">
+            <div>
+               <?php if(in_array("All Field must be filled out", $err_collect)) echo "<h3><span style='color: #e74c3c; text-align:center'>All Field must be filled out *</span></h3><br />";?>
+            </div>
             <div class="panel panel-login">
                <div class="panel-heading">
                   <a href="login.php" class="active" id="login-form-link">Login</a>
