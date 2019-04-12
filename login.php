@@ -3,6 +3,10 @@ include_once("db_config/config.php");
 include_once('template/header.php'); 
 include_once('template/nav.php'); 
 
+
+if(isset($_SESSION['username'])){
+      header("Location: index.php");
+   }
 ?>
 <?php
    $err_collect = array();
@@ -18,13 +22,13 @@ include_once('template/nav.php');
          $user_query = mysqli_num_rows($check_user);
 
          if ($user_query == 1) {
-            $row = mysqli_fetch_array($check_database_query);
+            $row = mysqli_fetch_array($check_user);
             $username = $row['username'];
 
             $_SESSION['username'] = $username;
             header("location: index.php");
          }else{
-            echo "Email or password was incorrect";
+            array_push($err_collect,"Email or password was incorrect");
          }
       }
 
@@ -37,6 +41,7 @@ include_once('template/nav.php');
          <div class="col-md-6 col-md-offset-3">
             <div>
                <?php if(in_array("All Field must be filled out", $err_collect)) echo "<h3><span style='color: #e74c3c; text-align:center'>All Field must be filled out *</span></h3><br />";?>
+               <?php if(in_array("Email or password was incorrect", $err_collect)) echo "<h3><span style='color: #e74c3c; text-align:center'>Email or password was incorrect</span></h3><br />";?>
             </div>
             <div class="panel panel-login">
                <div class="panel-heading">

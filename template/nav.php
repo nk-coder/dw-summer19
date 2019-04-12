@@ -46,7 +46,13 @@
 
                   <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Drop Down<span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
-                      <li><a href=# >Drop Down 1</a></li>
+                      <li>
+                        <?php
+                            if (isset($_SESSION['username'])) { $username = $_SESSION['username'];?>
+                              
+                            <a href="userProfile.php">My Profile</a>
+                        <?php }?>
+                      </li>
                       <li><a href=# >Drop Down 2</a></li>
                     </ul> 
                   </li>
@@ -55,7 +61,11 @@
                     <a class="page-scroll" href="contact-us.php">Contact</a>
                   </li>
                   <li>
-                    <a class="page-scroll" href="login.php">Login</a>
+                    <?php if(isset($_SESSION['username'])) { ?>
+                      <a href="logout.php">Logout</a>
+                        <?php }else {?>
+                      <a href="login.php">Login</a>
+                        <?php } ?>
                   </li>
                 </ul>
               </div>

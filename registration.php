@@ -87,8 +87,9 @@ include_once('template/nav.php');
         }
 
         if(empty($error_collect)){
+        	$registration_no = "CUR". mt_rand(100000,999999);
         	$password = md5($password);
-            $query = mysqli_query($con, "INSERT INTO users VALUES('','$fname','$lname','$business_name','$job_title','$interested_area','$email','$username','$password','0')");
+            $query = mysqli_query($con, "INSERT INTO users VALUES('','$fname','$lname','$business_name','$job_title','$interested_area','$email','$username','$password','0','$registration_no')");
             array_push($error_collect, "Your registration complete successfully");
             
         }
