@@ -46,7 +46,7 @@ include_once('template/slider.php');
         <div class="row">
           <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="section-headline text-center">
-              <h2>Latest News</h2>
+              <h2>Stay with us</h2>
             </div>
           </div>
         </div>
@@ -65,12 +65,12 @@ include_once('template/slider.php');
 										<a href="#">13 comments</a>
 									</span>
                 <span class="date-type">
-										<i class="fa fa-calendar"></i>2016-03-05 / 09:10:16
+										<i class="fa fa-calendar"></i>2019-04-10 / 09:10:16
 									</span>
               </div>
               <div class="blog-text">
                 <h4>
-                                        <a href="blog.html">Assumenda repud eum veniam</a>
+                                        <a href="#">Latest News</a>
 									</h4>
                 <p>
                   Lorem ipsum dolor sit amet conse adipis elit Assumenda repud eum veniam optio modi sit explicabo nisi magnam quibusdam.sit amet conse adipis elit Assumenda repud eum veniam optio modi sit explicabo nisi magnam quibusdam.
@@ -97,12 +97,12 @@ include_once('template/slider.php');
 										<a href="#">130 comments</a>
 									</span>
                 <span class="date-type">
-										<i class="fa fa-calendar"></i>2016-03-05 / 09:10:16
+										<i class="fa fa-calendar"></i>2019-04-10 / 09:10:16
 									</span>
               </div>
               <div class="blog-text">
                 <h4>
-                                        <a href="blog.html">Explicabo magnam quibusdam.</a>
+                                        <a href="#">Awards</a>
 									</h4>
                 <p>
                   Lorem ipsum dolor sit amet conse adipis elit Assumenda repud eum veniam optio modi sit explicabo nisi magnam quibusdam.sit amet conse adipis elit Assumenda repud eum veniam optio modi sit explicabo nisi magnam quibusdam.
@@ -129,12 +129,12 @@ include_once('template/slider.php');
 										<a href="#">10 comments</a>
 									</span>
                 <span class="date-type">
-										<i class="fa fa-calendar"></i>2016-03-05 / 09:10:16
+										<i class="fa fa-calendar"></i>2019-04-10 / 09:10:16
 									</span>
               </div>
               <div class="blog-text">
                 <h4>
-                                        <a href="blog.html">Lorem ipsum dolor sit amet</a>
+                                        <a href="#">Press Releases</a>
 									</h4>
                 <p>
                   Lorem ipsum dolor sit amet conse adipis elit Assumenda repud eum veniam optio modi sit explicabo nisi magnam quibusdam.sit amet conse adipis elit Assumenda repud eum veniam optio modi sit explicabo nisi magnam quibusdam.
