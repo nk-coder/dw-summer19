@@ -55,10 +55,11 @@ include_once('template/nav.php');
             <div class=" about-move">
               <div class="services-details">
                 <div class="single-services">
-                  <a class="services-icon" href="#">
-											<i class="fa fa-wordpress"></i>
-										</a>
+                  
+											<!-- <i class="fa fa-wordpress"></i> -->
+										<a class="services-icon" href="#">
                   <h4>Wordpress Developer</h4>
+                  </a>
                   <p>
                     will have to make sure the prototype looks finished by inserting text or photo.make sure the prototype looks finished by.
                   </p>

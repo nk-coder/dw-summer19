@@ -35,10 +35,23 @@
   <!-- Responsive Stylesheet File -->
   <link href="css/responsive.css" rel="stylesheet">
 
-  <!-- =======================================================
-    Theme Name: eBusiness
-    Theme URL: https://bootstrapmade.com/ebusiness-bootstrap-corporate-template/
-    Author: BootstrapMade.com
-    License: https://bootstrapmade.com/license/
-  ======================================================= -->
+  <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" />
+        <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script>
+        <script>
+            window.addEventListener("load", function(){
+                window.cookieconsent.initialise({
+                    "palette": {
+                        "popup": {
+                            "background": "#eaf7f7",
+                            "text": "#5c7291"
+                        },
+                        "button": {
+                            "background": "#56cbdb",
+                            "text": "#ffffff"
+                        }
+                    },
+                    "showLink": false,
+                    "type": "opt-in"
+                })});
+        </script>
 </head>

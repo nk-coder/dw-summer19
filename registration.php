@@ -59,7 +59,7 @@ include_once('template/nav.php');
         }
         if($password!==$confirmPassword){
             array_push($error_collect,"Passwords doesn't matched");
-            echo "not matched";
+            //echo "not matched";
         }
 
         //check user already exits or not
@@ -78,7 +78,6 @@ include_once('template/nav.php');
             //Count the number of rows returned
 
             $num_row = mysqli_num_rows($email_check);
-            //print_r($num_row); exit;
             if($num_row > 0){
                 array_push($error_collect,"Email already exist");
             }
@@ -95,8 +94,11 @@ include_once('template/nav.php');
         }
 
 
+
 	} 
 ?>
+
+	
 
 <div class="container login_form">
     	<div class="row">

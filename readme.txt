@@ -1,0 +1,1 @@
+irst open the "setup" folder then you will get "db_setup.php" file. Run this file on your browser

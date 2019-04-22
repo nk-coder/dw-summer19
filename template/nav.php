@@ -22,7 +22,7 @@
 										<span class="icon-bar"></span>
 									</button>
                 <!-- Brand -->
-                <a class="navbar-brand page-scroll sticky-logo" href="index.html">
+                <a class="navbar-brand page-scroll sticky-logo" href="index.php">
                   <h1><span>Curious </span>CyberSecurity</h1>
                   <!-- Uncomment below if you prefer to use an image logo -->
                   <!-- <img src="img/logo.png" alt="" title=""> -->
@@ -41,21 +41,31 @@
                     <a class="page-scroll" href="services.php">Services</a>
                   </li>
                   <li>
+                    <a class="page-scroll" href="training.php">Training</a>
+                  </li>
+                  <li>
                     <a class="page-scroll" href="our-approach.php">Our Approach</a>
                   </li>
 
-                  <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Drop Down<span class="caret"></span></a>
+                  <?php if(isset($_SESSION['username'])) { $username = $_SESSION['username'];?>
+
+                  <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $username; ?><span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
-                      <li>
-                        <?php
-                            if (isset($_SESSION['username'])) { $username = $_SESSION['username'];?>
-                              
-                            <a href="userProfile.php">My Profile</a>
-                        <?php }?>
-                      </li>
-                      <li><a href=# >Drop Down 2</a></li>
+                      <li><a href="userProfile.php">My Profile</a></li>
+
+                      <?php if(isset($_SESSION['username']) && $_SESSION['user_type'] == 0){ $username = $_SESSION['username'];?>
+                      <li><a href="userBookingDetails.php">My Booking List</a></li>
+                    <?php } ?>
+
+                      <?php if(isset($_SESSION['username']) && $_SESSION['user_type'] == 1){ $username = $_SESSION['username'];?>
+                        <li><a href="adminAddTraining.php" >Add New Trainings</a></li>
+                        <li><a href="adminBookedTrainingView.php" >Trainings Booked List</a></li>
+                        <li><a href="services.php" >Add New Services</a></li>
+
+                      <?php }?>
                     </ul> 
                   </li>
+                  <?php }?>
 
                   <li>
                     <a class="page-scroll" href="contact-us.php">Contact</a>

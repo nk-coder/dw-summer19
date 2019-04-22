@@ -18,9 +18,6 @@ include_once('template/slider.php');
             <div class="wellcome-text">
               <div class="well-text text-center">
                 <h2>Get Started</h2>
-                <p>
-                  Busuness Lorem ipsum dolor sit amet, consectetur adipiscing elit.luctus est eget congue.
-                </p>
                 <div class="subs-feilds">
                   <div class="suscribe-input">
                     <input type="email" class="email form-control width-80" id="sus_email" placeholder="Email">

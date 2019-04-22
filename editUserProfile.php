@@ -5,7 +5,7 @@ include_once('template/nav.php');
 ?>
 <!-- collect data according to logged in user -->
 <?php 
-	$userId = $_GET['id'];
+	
 	$UserQuery = mysqli_query($con,"SELECT * FROM users WHERE id='$userId'");
 
 	$uq=mysqli_fetch_array($UserQuery);

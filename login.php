@@ -10,6 +10,16 @@ if(isset($_SESSION['username'])){
 ?>
 <?php
    $err_collect = array();
+   $counter = 0;
+
+   if (isset($_SESSION['login_fail']) && $_SESSION['login_fail']==3) {
+      if (time() - $_SESSION['last_login_time']<3*60*60) {
+         array_push($err_collect, "You Already tried 3 times, Please try again after 3 minute later");
+      }else{
+         $_SESSION['login_fail'] = 0;
+      }
+   }
+
    if(isset($_POST["login-submit"])){
       $username = mysqli_real_escape_string($con,$_POST["username"]);
       $password = md5($_POST['password']);
@@ -23,12 +33,21 @@ if(isset($_SESSION['username'])){
 
          if ($user_query == 1) {
             $row = mysqli_fetch_array($check_user);
+            $userId = $row['id'];
             $username = $row['username'];
+            $usertype = $row['user_type'];
 
+            $_SESSION['id'] = $userId;
             $_SESSION['username'] = $username;
+            $_SESSION['user_type'] = $usertype;
             header("location: index.php");
          }else{
+            //$_SESSION['login_fail'] ++;
+            $counter++;
+            echo $counter;
+            $_SESSION['last_login_time'] = time();
             array_push($err_collect,"Email or password was incorrect");
+            
          }
       }
 
