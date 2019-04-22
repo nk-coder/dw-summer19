@@ -23,7 +23,7 @@
 									</button>
                 <!-- Brand -->
                 <a class="navbar-brand page-scroll sticky-logo" href="index.php">
-                  <h1><span>Curious </span>CyberSecurity</h1>
+                  <h1><span>Curious </span><br>CyberSecurity</h1>
                   <!-- Uncomment below if you prefer to use an image logo -->
                   <!-- <img src="img/logo.png" alt="" title=""> -->
 								</a>

@@ -22,15 +22,24 @@ include_once('template/nav.php');
 ?>
 
 <?php
-  $query;
-  if (isset($_POST['book'])) {
-    $userId = $_SESSION['id'];
-    if (!isset($_SESSION['username'])) {
-      header("Location:login.php");
-    }
-    $query = mysqli_query($con, "INSERT INTO booking VALUES('','$userId','$training_id')");
-    
-  }
+   $error_find = array();
+   if (isset($_POST['book'])) {
+      $userId = $_SESSION['id'];
+      $booking_query = mysqli_query($con, "SELECT * FROM booking");
+      $bq = mysqli_fetch_array($booking_query);
+      $trainingID = $bq['training_id'];
+      $customerID = $bq['customer_id'];
+      if ($training_id == $trainingID && $userId == $customerID ) {
+         array_push ($error_find,"You already booked for this course!!");
+      }
+      if (!isset($_SESSION['username'])) {
+         header("Location:login.php");
+      }
+      if(empty($error_find)){ 
+      $query = mysqli_query($con, "INSERT INTO booking VALUES('','$userId','$training_id')");
+      array_push ($error_find,"Your booking is complete successfully");
+      }
+   }
 ?>
 
 <div class="portfolio-single-area" style="margin-top: 50px">
@@ -38,9 +47,9 @@ include_once('template/nav.php');
             <div class="row">
                 <div class="col-md-8">
                     <div class="portfolio-single">
-                      <div><?php if ($query==True) {
-                        $mesg = "Your successfully booked for training on ".$title;
-                      }; ?>
+                      <div><?php if(in_array("You already booked for this course!!", $error_find)) echo "<h3><span style='color: #e74c3c; text-align:center'>You already booked for this course!!</span></h3><br />";?>
+
+                      <?php if(in_array("Your booking is complete successfully", $error_find)) echo "<h3><span style='color: #27ae60; text-align:center'>Your booking is complete successfully</span></h3><br />";?>
                         
                       </div>
                         <div class="portfoloi-single-title">
