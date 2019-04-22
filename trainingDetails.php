@@ -22,6 +22,7 @@ include_once('template/nav.php');
 ?>
 
 <?php
+  $query;
   if (isset($_POST['book'])) {
     $userId = $_SESSION['id'];
     if (!isset($_SESSION['username'])) {
@@ -53,6 +54,10 @@ include_once('template/nav.php');
                             </form>
                             <img src="<?php echo "img/training/".$image;?>">
                         </div>
+                        <div class="s-image image-fulwidth">
+                            <h3 class="title-single">Course Description</h3>
+                            <p><?php echo $description;?></p>
+                        </div>
                     </div>
                 </div>
                     
@@ -62,23 +67,7 @@ include_once('template/nav.php');
                      <span class="name pull-left">Price:</span>
                      <div class="sw-price pull-right"> <span class="edd_price"><?php echo $cost."$";?></span></div>
                     </div>
-                    <div class="theme-price-details">
-                     <ul class="recomended-service">
-                        <h5>Recommended Service</h5>
-                        <li>
-                           <p>One-Click demo install</p>
-                        </li>
-                        <li>
-                           <p>Professional design</p>
-                        </li>
-                        <li>
-                           <p>Modern, Flexible, Customizable</p>
-                        </li>
-                        <li>
-                           <p>WordPress 4.0+ Tested and Approved</p>
-                        </li>
-                     </ul>
-                    </div>
+                    
                     </div>
                     <div class="wpb_wrapper">
                         <div class="theme-quick-info">
@@ -86,48 +75,35 @@ include_once('template/nav.php');
                                 <h3>Quick Information</h3>
                                 <div class="info-label">
                                     <span class="quick-info-type">
-                                        <p>Version:</p>
+                                        <p>Cost:</p>
                                     </span>
                                     <span class="quick-info-detail">
-                                      <p></p>
+                                      <p><?php echo $cost." $"; ?></p>
                                     </span>
                                     <span class="quick-info-type">
-                                      <p>Released On:</p>
+                                      <p>Start At:</p>
                                     </span>
                                     <span class="quick-info-detail">
-                                      <p></p>
+                                      <p><?php echo $startDate; ?></p>
                                     </span>
                                     <span class="quick-info-type">
-                                      <p>Height Resolution:</p>
+                                      <p>Class Start:</p>
                                     </span>
                                     <span class="quick-info-detail">
-                                      <p></p>
+                                      <p><?php echo $start_time; ?></p>
                                     </span>
                                     <span class="quick-info-type">
-                                      <p>Widget Ready:</p>
+                                      <p>Class End:</p>
                                     </span>
                                     <span class="quick-info-detail">
-                                      <p></p>
+                                      <p><?php echo $end_time; ?></p>
                                     </span>
                                     <span class="quick-info-type">
-                                      <p>Responsive:</p>
+                                      <p>Course Duration:</p>
                                     </span>
                                     <span class="quick-info-detail">
-                                      <p></p>
+                                      <p><?php echo $duration; ?></p>
                                     </span>
-                                    <span class="quick-info-type">
-                                      <p>Compatible Browsers:</p>
-                                    </span>
-                                    <span class="quick-info-detail">
-                                      <p></p>
-                                    </span>
-                                    <span class="quick-info-type">
-                                      <p>Files Included:</p>
-                                    </span>
-                                    <span class="quick-info-detail">
-                                      <p></p>
-                                    </span>
-                                    
                                 </div>
                             </div>
                         </div>

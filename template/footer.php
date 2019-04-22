@@ -3,7 +3,7 @@
     <div class="footer-area">
       <div class="container">
         <div class="row">
-          <div class="col-md-4 col-sm-4 col-xs-12">
+          <div class="col-md-6 col-sm-6 col-xs-12">
             <div class="footer-content">
               <div class="footer-head">
                 <div class="footer-logo">
@@ -16,23 +16,8 @@
             </div>
           </div>
           <!-- end single footer -->
-          <div class="col-md-4 col-sm-4 col-xs-12">
-            <div class="footer-content">
-              <div class="footer-head">
-                <h4>information</h4>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.
-                </p>
-                <div class="footer-contacts">
-                  <p><span>Tel:</span> +123 456 789</p>
-                  <p><span>Email:</span> contact@example.com</p>
-                  <p><span>Working Hours:</span> 9am-5pm</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- end single footer -->
-          <div class="col-md-4 col-sm-4 col-xs-12">
+          
+          <div class="col-md-3 col-sm-3 col-xs-12">
             <div class="footer-content">
               <div class="footer-head">
                 <h4>Social Media</h4>
@@ -52,25 +37,26 @@
                     </li>
                   </ul>
                 </div><!--footer incon -->
-                <div class="footer-area-bottom">
-                  <div class="container">
-                    <div class="row">
-                      <div class="col-md-12 col-sm-12 col-xs-12">
-                        <div class="copyright text-center">
-                          <p>
-                            &copy; Copyright <strong>eBusiness</strong>. All Rights Reserved
-                          </p>
-                        </div>
-                        <div class="credits">
-                          Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-3 col-sm-3 col-xs-12">
+            <div class="footer-content">
+              <div class="footer-head">
+                <h4>Find Your Needs</h4>
+                
+                <div class="footer-contacts">
+                  <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                  </form>
                 </div>
               </div>
             </div>
           </div>
+          <!-- end single footer -->
         </div>
       </div>
     </div>

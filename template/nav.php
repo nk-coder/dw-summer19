@@ -71,6 +71,9 @@
                     <a class="page-scroll" href="contact-us.php">Contact</a>
                   </li>
                   <li>
+                    <a class="page-scroll" href="location.php">Location</a>
+                  </li>
+                  <li>
                     <?php if(isset($_SESSION['username'])) { ?>
                       <a href="logout.php">Logout</a>
                         <?php }else {?>
