@@ -38,6 +38,9 @@ html, body {
 .floatleft {
   float: left;
 }
+.top-padding{
+  padding-top: 90px;
+}
 
 .floatright {
   float: right;
@@ -1736,7 +1739,7 @@ div#preloader {
 
 .footer-area {
   padding: 40px 0;
-  background: #f9f9f9;
+  background: #dfe6e9;
 }
 
 .footer-head p {
@@ -2717,6 +2720,51 @@ span.edd_price {
 }
 
 
+/*----------------------------------------
+ service video 
+----------------------------------------*/
+.vedioBoxBg{background-color:#fff}
+.vedioBoxShdo{
+  width:100%;
+  max-width:860px;
+  margin:0 auto;
+   -webkit-box-shadow:-10px 18px 40px #2a2020;
+    -moz-box-shadow:-10px 18px 40px #2a2020;
+    -o-box-shadow:-10px 18px 40px #2a2020;
+  box-shadow:-10px 18px 40px #2a2020;
+  background-color:#000;
+  padding:25px;
+}
+.vedioBoxIn{
+  width:100%;
+  height:407px;
+  position:relative;
+}
+.vedioBoxIn iframe{
+  width:100%;
+  height:100%;
+  position:absolute;
+  top:0;
+  left:0;
+}
+
+.video-title h4{
+  width:100%;
+  padding:15px 25px;
+  margin:40px auto 0;
+  text-align:center;
+  color:#444;
+  font-size:16px;
+    font-family:'Raleway', sans-serif;
+  background:#fff;
+  -webkit-box-shadow:0px 0px 5px rgba(0, 0, 0, 0.18);
+    -moz-box-shadow:0px 0px 5px rgba(0, 0, 0, 0.18);
+    -o-box-shadow:0px 0px 5px rgba(0, 0, 0, 0.18);
+    box-shadow:0px 0px 5px rgba(0, 0, 0, 0.18);
+  border:1px solid #ccc;
+  transition:.4s;
+    text-transform:uppercase;
+}
 
 /*----------------------------------------
  .End CSS

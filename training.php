@@ -14,10 +14,11 @@ include_once('template/nav.php');
                 <p>webFix is a modern, clean and professional multi-purpose Business theme, It is fully responsive, it looks stunning on all types of screens and devices. It is super for Business, Creative Agency, Architechture, Digital Agency, Minimal, Resume Portfolio, Startup Business and Many more categories.</p>
             </div>
         </div>
+        <div class="row">
         <?php
 			$trainingQuery = mysqli_query($con,"SELECT * FROM training");
 			while($row = mysqli_fetch_assoc($trainingQuery)) {?>
-				<div class="row">
+				
 	                <div class="col-md-4 col-md-6">
 						<div class="demo-single">
 							<div class="demo-single-img">
@@ -35,12 +36,10 @@ include_once('template/nav.php');
 							<h3><?php echo $row['title']."<br>"."Cost= ".$row['cost']."$"; ?></h3>
 						</div>
 					</div>
-	            </div>
+	            
 			<?php } ?>
-        
+        </div>
     </div>
 </div>
-
-
 
  <?php include_once('template/footer.php');

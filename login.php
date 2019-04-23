@@ -10,15 +10,21 @@ if(isset($_SESSION['username'])){
 ?>
 <?php
    $err_collect = array();
-   $counter = 0;
+   $_SESSION['login_fail']=0;
+   $counter;
 
-   if (isset($_SESSION['login_fail']) && $_SESSION['login_fail']==3) {
-      if (time() - $_SESSION['last_login_time']<3*60*60) {
+//block user for 3 minutes if 3 wrong login attemps
+   if (isset($_SESSION['login_fail']) && $_SESSION['login_fail']>2) {
+      if ((time() - $_SESSION['last_login_time'])<3*60) {
          array_push($err_collect, "You Already tried 3 times, Please try again after 3 minute later");
       }else{
          $_SESSION['login_fail'] = 0;
+         if (($key = array_search('You Already tried 3 times, Please try again after 3 minute later', $err_collect)) !== false) {
+             unset($err_collect[$key]);
+         }
       }
    }
+
 
    if(isset($_POST["login-submit"])){
       $username = mysqli_real_escape_string($con,$_POST["username"]);
@@ -27,7 +33,7 @@ if(isset($_SESSION['username'])){
       if(empty($username) || empty($password)){
          array_push($err_collect, "All Field must be filled out");
       }
-      if (!empty($username) && !empty($password)) {
+      if (empty($err_collect) && !empty($username) && !empty($password)) {
          $check_user = mysqli_query($con, "SELECT * FROM users WHERE username='$username' AND password='$password'");
          $user_query = mysqli_num_rows($check_user);
 
@@ -42,9 +48,10 @@ if(isset($_SESSION['username'])){
             $_SESSION['user_type'] = $usertype;
             header("location: index.php");
          }else{
-            //$_SESSION['login_fail'] ++;
+            $_SESSION['login_fail'] ++;
             $counter++;
             echo $counter;
+            echo $_SESSION['login_fail'];
             $_SESSION['last_login_time'] = time();
             array_push($err_collect,"Email or password was incorrect");
             
@@ -60,6 +67,7 @@ if(isset($_SESSION['username'])){
          <div class="col-md-6 col-md-offset-3">
             <div>
                <?php if(in_array("All Field must be filled out", $err_collect)) echo "<h3><span style='color: #e74c3c; text-align:center'>All Field must be filled out *</span></h3><br />";?>
+               <?php if(in_array("You Already tried 3 times, Please try again after 3 minute later", $err_collect)) echo "<h3><span style='color: #e74c3c; text-align:center'>You Already tried 3 times, Please try again after 3 minute later</span></h3><br />";?>
                <?php if(in_array("Email or password was incorrect", $err_collect)) echo "<h3><span style='color: #e74c3c; text-align:center'>Email or password was incorrect</span></h3><br />";?>
             </div>
             <div class="panel panel-login">

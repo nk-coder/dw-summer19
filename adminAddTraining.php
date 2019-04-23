@@ -28,9 +28,7 @@ if (isset($_POST['submit'])) {
     if(empty($error_collect)){
             $query = mysqli_query($con, "INSERT INTO training VALUES('','$title','$trainingDetails','$image','$cost','$startDate','$classTime','$endTime','$duration')");
             move_uploaded_file($_FILES["image"]["tmp_name"], "img/training/".$image);
-            array_push($error_collect, "New Training successfully");
-
-    	//echo  $title, $trainingDetails, $image, $cost,$startDate;
+            array_push($error_collect, "New Training added successfully");
             
         }
 } 
@@ -40,9 +38,8 @@ if (isset($_POST['submit'])) {
       <div class="row">
          <div class="col-md-6 col-md-offset-3">
             <div>
-               <!-- <?php if(in_array("All Field must be filled out", $err_collect)) echo "<h3><span style='color: #e74c3c; text-align:center'>All Field must be filled out *</span></h3><br />";?>
-               <?php if(in_array("New Training successfully", $err_collect)) echo "<h3><span style='color: #27ae60; text-align:center'>New Training successfully</span></h3><br />";?> -->
-            </div>
+               <?php if(in_array("All Field must be filled out", $error_collect)) echo "<h3><span style='color: #e74c3c; text-align:center'>All Field must be filled out *</span></h3><br />";?>
+               <?php if(in_array("New Training added successfully", $error_collect)) echo "<h3><span style='color: #27ae60; text-align:center'>New Training added successfully</span></h3><br />";?> 
             <div class="panel panel-login">
                <div class="panel-heading">
                   <a href="" class="active" id="login-form-link">Add New Training</a>

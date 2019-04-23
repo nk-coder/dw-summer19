@@ -5,7 +5,65 @@ include_once('template/nav.php');
 include_once('template/slider.php'); 
 
 ?>
-
+  
+  <!-- Start About area -->
+  <div id="about" class="about-area area-padding">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <div class="section-headline text-center">
+            <h2>About Curious Cybersecurity</h2>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <!-- single-well start-->
+        <div class="col-md-5 col-sm-5 col-xs-12">
+          <div class="well-left">
+            <div class="single-well">
+              <a href="#">
+                  <img src="img/about/1.jpg" alt="">
+                </a>
+            </div>
+          </div>
+        </div>
+        <!-- single-well end-->
+        <div class="col-md-7 col-sm-7 col-xs-12">
+          <div class="well-middle">
+            <div class="single-well">
+              <a href="#">
+                <h4 class="sec-head">We Are</h4>
+              </a>
+              <p>
+                Curious Cybersecurity are a research-based company founded in 2016, created by John
+                and Steven Yung. Their ambition is to research and help companies with the human
+                elements of cybersecurity with a view to developing anti-phishing filtering solutions.
+              </p>
+              <ul>
+                <li>
+                  <i class="fa fa-check"></i> Provide quality Training
+                </li>
+                <li>
+                  <i class="fa fa-check"></i> Anti-phishing filtering solutions
+                </li>
+                <li>
+                  <i class="fa fa-check"></i> Human elements of cybersecurity
+                </li>
+                <li>
+                  <i class="fa fa-check"></i> Renovaion of Commercial Office
+                </li>
+                <li>
+                  <i class="fa fa-check"></i> Make Quality Products
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- End col-->
+      </div>
+    </div>
+  </div>
+  <!-- End About area -->
   
 
   <!-- Start Wellcome Area -->

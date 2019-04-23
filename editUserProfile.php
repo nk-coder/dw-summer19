@@ -5,6 +5,7 @@ include_once('template/nav.php');
 ?>
 <!-- collect data according to logged in user -->
 <?php 
+	$userId = $_GET['id'];
 	
 	$UserQuery = mysqli_query($con,"SELECT * FROM users WHERE id='$userId'");
 
@@ -62,6 +63,32 @@ include_once('template/nav.php');
             
         }
 	}
+?>
+
+<!-- change Password -->
+<?php 
+	if (isset($_POST['update_password'])) {
+		$old_password = strip_tags($_POST['old_password']);
+		$new_password_1 = strip_tags($_POST['new_password_1']);
+		$new_password_2 = strip_tags($_POST['new_password_2']);
+
+		$password_query = mysqli_query($con, "SELECT password FROM users WHERE id='$userId'");
+		$row = mysqli_fetch_array($password_query);
+		$db_password = $row['password'];
+
+		if (md5($old_password) == $db_password) {
+			if ($new_password_1 == $new_password_2) {
+				$new_password_md5 = md5($new_password_1);
+				$password_query = mysqli_query($con, "UPDATE users SET password='$new_password_md5' WHERE id='$userId'");
+				array_push($error_collect, "Your password change successfully");
+			}else{
+				array_push($error_collect, "Your two new passwords need to match!");
+			}
+		}else{
+			array_push($error_collect, "The old password was incorrect!");
+		}
+	}
+
 ?>
 
 <div class="services-area area-padding">
@@ -122,26 +149,6 @@ include_once('template/nav.php');
 					  </div>
 					</div>
 
-					<!-- Select Basic -->
-					<!-- <div class="form-group">
-					  <label class="col-md-4 control-label" for="job_title">Job Title</label>
-					  <div class="col-md-4">
-					    <select id="job_title" name="job_title" class="form-control">
-					      <option value="1">Senior Java Developer</option>
-					      <option value="2">Project Manager</option>
-					    </select>
-					  </div>
-					</div> -->
-
-					<!-- File Button --> 
-					<!-- <div class="form-group">
-					  <label class="col-md-4 control-label" for="uploadPhoto">Upload photo</label>
-					  <div class="col-md-4">
-					    <input id="uploadPhoto" name="uploadPhoto" class="input-file" type="file">
-					  </div>
-					</div> -->
-					
-
 					<!-- Button (Double) -->
 					<div class="form-group">
 					  <label class="col-md-4 control-label" for="save"></label>
@@ -152,6 +159,54 @@ include_once('template/nav.php');
 					</div>
 				</fieldset>
 			</form>
+
+			<!-- Password section -->
+			<h2>Change Your Password</h2><hr>
+			<div>
+				<?php if(in_array("Your password change successfully", $error_collect)) echo "<h3><span style='color: #27ae60; text-align:center''>Your password change successfully</span></h3><br />";?>
+            	<?php if(in_array("Your two new passwords need to match!", $error_collect)) echo "<h3><span style='color: #e74c3c; text-align:center'>Your two new passwords need to match!</span></h3><br />";?>
+            	<?php if(in_array("The old password was incorrect!", $error_collect)) echo "<h3><span style='color: #e74c3c; text-align:center'>The old password was incorrect!</span></h3><br />";?>
+			</div>
+			<form class="form-horizontal" action="" method="POST">
+				<fieldset>
+
+					<!-- Text input-->
+					<div class="form-group">
+					  <label class="col-md-4 control-label" for="old_password">Old Password</label>  
+					  <div class="col-md-4">
+					  	<input id="old_password" name="old_password" class="form-control input-md" required="" type="password">
+					  </div>
+					</div>
+
+					<!-- Text input-->
+					<div class="form-group">
+					  <label class="col-md-4 control-label" for="new_password_1">New Password</label>  
+					  <div class="col-md-4">
+					  	<input id="new_password_1" name="new_password_1" class="form-control input-md" required="" type="password" >
+					    
+					  </div>
+					</div>
+
+					<!-- Text input-->
+					<div class="form-group">
+					  <label class="col-md-4 control-label" for="new_password_2">New Pssword Again</label>  
+					  <div class="col-md-4">
+					  	<input id="new_password_2" name="new_password_2" class="form-control input-md" required="" type="password">
+					    
+					  </div>
+					</div>
+
+
+					<!-- Button (Double) -->
+					<div class="form-group">
+					  <label class="col-md-4 control-label" for="save"></label>
+					  <div class="col-md-8">
+					    <button id="save" name="update_password" class="btn btn-success">Update</button>
+					  </div>
+					</div>
+				</fieldset>
+			</form>
+			<hr>
 		</div>
 	</div>
 </div>
