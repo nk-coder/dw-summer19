@@ -10,8 +10,8 @@ if(isset($_SESSION['username'])){
 ?>
 <?php
    $err_collect = array();
-   $_SESSION['login_fail']=0;
-   $counter;
+   $_SESSION['login_fail'];
+   //$counter;
 
 //block user for 3 minutes if 3 wrong login attemps
    if (isset($_SESSION['login_fail']) && $_SESSION['login_fail']>2) {
@@ -49,9 +49,9 @@ if(isset($_SESSION['username'])){
             header("location: index.php");
          }else{
             $_SESSION['login_fail'] ++;
-            $counter++;
-            echo $counter;
-            echo $_SESSION['login_fail'];
+            //$counter++;
+            //echo $counter;
+            //echo $_SESSION['login_fail'];
             $_SESSION['last_login_time'] = time();
             array_push($err_collect,"Email or password was incorrect");
             

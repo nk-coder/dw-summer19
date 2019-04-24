@@ -2,7 +2,8 @@
 include_once("db_config/config.php"); 
 include_once('template/header.php'); 
 include_once('template/nav.php');
-?>
+
+if (isset($_SESSION['username']) && $_SESSION['user_type']==1) {?>
 </br>
 </br>
 </br>
@@ -32,13 +33,14 @@ include_once('template/nav.php');
 							</tr> 
 						</thead>
 						<?php 
-						$viewQuery = mysqli_query($con,"SELECT * FROM training");
+						$viewQuery = mysqli_query($con,"SELECT * FROM training WHERE active='yes'");
 						
 						$srNo = 0;
 						$result = mysqli_num_rows($viewQuery);
 						//var_dump($result);
 						if ($result > 0) {
 						while ($vq=mysqli_fetch_array($viewQuery)) {
+							$training_id = $vq["id"];
 							$title = $vq["title"];
 							$cost = $vq["cost"];
 							$startDate = $vq["startDate"];
@@ -59,8 +61,8 @@ include_once('template/nav.php');
 								<td><?php echo $duration; ?></td>
 								<td><?php echo $active; ?></td>
 								<td>
-									<a href="editPost.php?edit=<?php echo $postId; ?>"><span class="btn btn-warning">Edit</span></a> 
-									<a href="deletePost.php?delete=<?php echo $postId; ?>"><span class="btn btn-danger">Delete</span></a> 
+									<a href="adminTrainingEdit.php?edit=<?php echo $training_id; ?>"><span class="btn btn-warning">Edit</span></a> 
+									<a href="adminDeleteTraining.php?delete=<?php echo $training_id; ?>"><span class="btn btn-danger">Delete</span></a> 
 								</td>
 							</tr>  
 						</tbody> 
@@ -76,4 +78,11 @@ include_once('template/nav.php');
 		</div>
 	</div>
 </div>
+	
+<?php }else{
+	header("Location:login.php");
+}
+?>
+
+
 <?php include_once('template/footer.php');

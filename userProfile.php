@@ -53,7 +53,7 @@ if (isset($_SESSION['username'])) {
 
 	<?php
 }else{
-	echo "set hoy  nai";
+	header("Location:login.php");
 }
 ?>
 

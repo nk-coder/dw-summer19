@@ -11,7 +11,7 @@ include_once('template/nav.php');
         <div class="row">
             <div class="portfolio-title text-center">
                 <h2>Training we provide</h2>
-                <p>webFix is a modern, clean and professional multi-purpose Business theme, It is fully responsive, it looks stunning on all types of screens and devices. It is super for Business, Creative Agency, Architechture, Digital Agency, Minimal, Resume Portfolio, Startup Business and Many more categories.</p>
+                <p>Curious Cybersecurity are a research-based company founded in 2016, created by John and Steven Yung. Their ambition is to research and help companies with the human elements of cybersecurity with a view to developing anti-phishing filtering solutions.</p>
             </div>
         </div>
         <div class="row">

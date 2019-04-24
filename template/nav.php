@@ -65,10 +65,9 @@
                     <?php } ?>
 
                       <?php if(isset($_SESSION['username']) && $_SESSION['user_type'] == 1){ $username = $_SESSION['username'];?>
-                        <li><a href="adminAddTraining.php" >Add New Training</a></li>
                         <li><a href="adminAddNewService.php" >Add New Service</a></li>
                         <li><a href="adminBookedTrainingView.php" >Trainings Booked List</a></li>
-                        <li><a href="services.php" >Add New Services</a></li>
+                        <li><a href="adminTrainingView.php" >Trainings List</a></li>
 
                       <?php }?>
                     </ul> 
