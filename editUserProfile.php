@@ -38,19 +38,16 @@ include_once('template/nav.php');
 
 		//Business name
 		$business_name = strip_tags($_POST['business_name']); //Remove html tags
-		$business_name = str_replace(' ', '', $business_name); //remove spaces
 		$business_name = ucfirst(strtolower($business_name)); // uppercase first letter
 		$_SESSION['business_name'] = $business_name; // Store last name into session variable.
 
 		//Job title
 		$job_title = strip_tags($_POST['job_title']); //Remove html tags
-		$job_title = str_replace(' ', '', $job_title); //remove spaces
 		$job_title = ucfirst(strtolower($job_title)); // uppercase first letter
 		$_SESSION['job_title'] = $job_title; // Store last name into session variable.
 
 		//Interested Area
 		$interested_area = strip_tags($_POST['interested_area']); //Remove html tags
-		$interested_area = str_replace(' ', '', $interested_area); //remove spaces
 		$interested_area = ucfirst(strtolower($interested_area)); // uppercase first letter
 		$_SESSION['interested_area'] = $interested_area; // Store last name into session variable.
 
@@ -59,7 +56,7 @@ include_once('template/nav.php');
         }
         if(empty($error_collect)){
             $update_query = mysqli_query($con, "UPDATE `users` SET `first_name`= '$fname',`last_name`='$lname',`business_name`='$business_name',`job_title`='$job_title',`interested_area`='$interested_area' WHERE id='$userId'");
-            array_push($error_collect, "Your Updated successfully");
+            array_push($error_collect, "Your profile Updated successfully");
             
         }
 	}
@@ -97,7 +94,7 @@ include_once('template/nav.php');
 			<h2>User Information</h2><hr>
 			
 			<div>
-                    <?php if(in_array("Your Updated successfully", $error_collect)) echo "<h3><span style='color: #27ae60; text-align:center''>Your Updated successfully.</span></h3><br />";?>
+                    <?php if(in_array("Your profile Updated successfully", $error_collect)) echo "<h3><span style='color: #27ae60; text-align:center''>Your profile Updated successfully.</span></h3><br />";?>
                     <?php if(in_array("All Field must be filled out", $error_collect)) echo "<h3><span style='color: #e74c3c; text-align:center'>All Field must be filled out</span></h3><br />";?>
                 </div>
 			

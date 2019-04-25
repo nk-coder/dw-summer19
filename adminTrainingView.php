@@ -62,7 +62,7 @@ if (isset($_SESSION['username']) && $_SESSION['user_type']==1) {?>
 								<td><?php echo $active; ?></td>
 								<td>
 									<a href="adminTrainingEdit.php?edit=<?php echo $training_id; ?>"><span class="btn btn-warning">Edit</span></a> 
-									<a href="adminDeleteTraining.php?delete=<?php echo $training_id; ?>"><span class="btn btn-danger">Delete</span></a> 
+									<a href="adminTrainingDelete.php?delete=<?php echo $training_id; ?>"><span class="btn btn-danger">Delete</span></a> 
 								</td>
 							</tr>  
 						</tbody> 

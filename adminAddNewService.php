@@ -10,16 +10,19 @@ if (isset($_POST['submit'])) {
 	$title = strip_tags($_POST['title']);
 	$title = ucfirst($title); 
 
-	$trainingDetails = strip_tags($_POST['trainingDetails']); 
-	$trainingDetails = ucfirst(strtolower($trainingDetails));
+	$serviceDetails = strip_tags($_POST['serviceDetails']); 
+	$serviceDetails = ucfirst(strtolower($serviceDetails));
 
-	if (empty($title) || empty($trainingDetails)) {
+	if (empty($title) || empty($serviceDetails)) {
         array_push ($error_collect,"All Field must be filled out");
     }
 
     if(empty($error_collect)){
-            $query = mysqli_query($con, "INSERT INTO services VALUES('','$title','$trainingDetails')");
-            array_push($error_collect, "New sevices added successfully");
+            $query = mysqli_query($con, "INSERT INTO services VALUES('','$title','$serviceDetails')");
+            if (isset($query)) {
+            	array_push($error_collect, "New sevices added successfully");
+            }
+            
             
     }
 } 
@@ -30,7 +33,7 @@ if (isset($_POST['submit'])) {
 		<div class="col-md-6 col-md-offset-3">
 			<div>
 				<?php if(in_array("All Field must be filled out", $error_collect)) echo "<h3><span style='color: #e74c3c; text-align:center'>All Field must be filled out *</span></h3><br />";?>
-				<?php if(in_array("New sevices added successfully", $error_collect)) echo "<h3><span style='color: #27ae60; text-align:center'>New Training added successfully</span></h3><br />";?> 
+				<?php if(in_array("New sevices added successfully", $error_collect)) echo "<h3><span style='color: #27ae60; text-align:center'>New sevices added successfully</span></h3><br />";?> 
 				<div class="panel panel-login">
 					<div class="panel-heading">
 						<a href="" class="active" id="login-form-link">Add New Service</a>
@@ -46,8 +49,8 @@ if (isset($_POST['submit'])) {
 									</div> 
 
 									<div class="form-group"> 
-										<label for="trainingDetails">Training Details</label> 
-										<textarea class="form-control" id="trainingDetails" name="trainingDetails" id="post_area"></textarea>
+										<label for="serviceDetails">Service Details</label> 
+										<textarea class="form-control" id="serviceDetails" name="serviceDetails" id="post_area"></textarea>
 									</div>
 
 									<div class="form-group">

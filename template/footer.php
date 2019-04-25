@@ -25,16 +25,16 @@
                 <div class="footer-icons">
                   <ul>
                     <li>
-                      <a href="https://www.facebook.com"><i class="fa fa-facebook"></i></a>
+                      <a href="#"><img src="img/client/client1.png"></a>
                     </li>
                     <li>
-                      <a href="https://www.twitter.com"><i class="fa fa-twitter"></i></a>
+                      <a href="#"><img src="img/client/client2.png"></a>
                     </li>
                     <li>
-                      <a href="https://www.google.com"><i class="fa fa-google"></i></a>
+                      <a href="#"><img src="img/client/client3.png"></a>
                     </li>
                     <li>
-                      <a href="https://www.pinterest.com"><i class="fa fa-pinterest"></i></a>
+                      <a href="#"><img src="img/client/client4.png"></a>
                     </li>
                   </ul>
                 </div><!--footer incon -->

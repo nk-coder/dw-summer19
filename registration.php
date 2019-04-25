@@ -12,42 +12,32 @@ include_once('template/nav.php');
 		$fname = strip_tags($_POST['fname']); //Remove html tags
 		$fname = str_replace(' ', '', $fname); //remove spaces
 		$fname = ucfirst(strtolower($fname)); // uppercase first letter
-		$_SESSION['fname'] = $fname; // Store first name into session variable.
 		
 		//Last name
 		$lname = strip_tags($_POST['lname']); //Remove html tags
 		$lname = str_replace(' ', '', $lname); //remove spaces
 		$lname = ucfirst(strtolower($lname)); // uppercase first letter
-		$_SESSION['lname'] = $lname; // Store last name into session variable.
 
 		//Business name
 		$business_name = strip_tags($_POST['business_name']); //Remove html tags
-		$business_name = str_replace(' ', '', $business_name); //remove spaces
 		$business_name = ucfirst(strtolower($business_name)); // uppercase first letter
-		$_SESSION['business_name'] = $business_name; // Store last name into session variable.
 
 		//Job title
 		$job_title = strip_tags($_POST['job_title']); //Remove html tags
-		$job_title = str_replace(' ', '', $job_title); //remove spaces
 		$job_title = ucfirst(strtolower($job_title)); // uppercase first letter
-		$_SESSION['job_title'] = $job_title; // Store last name into session variable.
 
 		//Interested Area
 		$interested_area = strip_tags($_POST['interested_area']); //Remove html tags
-		$interested_area = str_replace(' ', '', $interested_area); //remove spaces
 		$interested_area = ucfirst(strtolower($interested_area)); // uppercase first letter
-		$_SESSION['interested_area'] = $interested_area; // Store last name into session variable.
 
 
 		//Email
 		$email = strip_tags($_POST['email']); //Remove html tags
 		$email = str_replace(' ', '', $email); //remove spaces
-		$_SESSION['email'] = $email; // Store email into session variable.
 
 		//username
 		$username = strip_tags($_POST['username']); //Remove html tags
 		$username = str_replace(' ', '', $username); //remove spaces
-		$_SESSION['username'] = $username; // Store username into session variable.
 
 		//password
 		$password = strip_tags($_POST['password']); //Remove html tags
@@ -104,8 +94,9 @@ include_once('template/nav.php');
     	<div class="row">
 			<div class="col-md-6 col-md-offset-3">
 				<div>
-                   <?php if(in_array("Your registration complete successfully", $error_collect)) echo "<span style='color: #e74c3c;'>Your registration complete successfully.</span><br />";
+                   <?php if(in_array("Your registration complete successfully", $error_collect)) echo "<h3><span style='color: #27ae60;'>Your registration complete successfully.</span></h3><br />";
                             ?>
+                    <?php if(in_array("All Field must be filled out", $error_collect)) echo "<h3><span style='color: #e74c3c; text-align:center'>All Field must be filled out</span></h3><br />";?>
                 </div>
 				<div class="panel panel-login">
 					<div class="panel-heading">
@@ -154,6 +145,7 @@ include_once('template/nav.php');
 									<div class="form-group">
 										<input type="password" name="confirmPassword" id="confirmPassword" tabindex="2" class="form-control" placeholder="Confirm Password">
 									</div>
+									<?php if(in_array("Passwords doesn't matched", $error_collect)) echo "<span style='color: #e74c3c;'>Passwords doesn't matched</span><br />";?>
 
 									<div class="form-group">
 										<div class="row">
@@ -162,6 +154,7 @@ include_once('template/nav.php');
 											</div>
 										</div>
 									</div>
+
 
 									<div class="form-group">
 		                                <div class="row">

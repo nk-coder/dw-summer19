@@ -141,7 +141,7 @@ if (isset($_POST['update'])) {
 					  <label class="col-md-4 control-label" for="save"></label>
 					  <div class="col-md-8">
 					    <button id="save" name="update" class="btn btn-success">Update</button>
-					    <button id="cancel" href="adminTrainingView.php" name="cancel" class="btn btn-danger">Cancel</button>
+					    <a id="cancel" href="adminTrainingView.php" name="cancel" class="btn btn-danger">Cancel</a>
 					  </div>
 					</div>
 				</fieldset>

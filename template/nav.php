@@ -41,10 +41,7 @@
                     <a class="page-scroll" href="services.php">Services</a>
                   </li>
                   <li>
-                    <a class="page-scroll" href="training.php">Training</a>
-                  </li>
-                  <li>
-                    <a class="page-scroll" href="our-approach.php">Our Approach</a>
+                    <a class="page-scroll" href="training.php">Our Approach</a>
                   </li>
                   
                   <li>
@@ -60,14 +57,15 @@
                     <ul class="dropdown-menu" role="menu">
                       <li><a href="userProfile.php">My Profile</a></li>
 
-                      <?php if(isset($_SESSION['username']) && $_SESSION['user_type'] == 0){ $username = $_SESSION['username'];?>
+                      <!-- <?php if(isset($_SESSION['username']) && $_SESSION['user_type'] == 0){ $username = $_SESSION['username'];?>
                       <li><a href="userBookingDetails.php">My Booking List</a></li>
-                    <?php } ?>
+                    <?php } ?> -->
 
                       <?php if(isset($_SESSION['username']) && $_SESSION['user_type'] == 1){ $username = $_SESSION['username'];?>
-                        <li><a href="adminAddNewService.php" >Add New Service</a></li>
-                        <li><a href="adminBookedTrainingView.php" >Trainings Booked List</a></li>
+                        <li><a href="adminServiceView.php" >Service List</a></li>
                         <li><a href="adminTrainingView.php" >Trainings List</a></li>
+                        <li><a href="adminBookedTrainingView.php" >Trainings Booked List</a></li>
+                        <li><a href="adminMessageView.php" >Message List</a></li>
 
                       <?php }?>
                     </ul> 
